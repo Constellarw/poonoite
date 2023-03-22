@@ -4,7 +4,13 @@ public enum Meses {
     marco,
     abril,
     maio,
-    junho
+    junho,
+    julho,
+    agosto,
+    setembro,
+    outubro,
+    novembro,
+    dezembro
 
 
 }

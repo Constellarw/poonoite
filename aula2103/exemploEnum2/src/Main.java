@@ -3,7 +3,13 @@ public class Main {
         Meses mes;
         mes = Meses.maio;
 
-        System.out.println(mes);
+        int mesesDepois = 2;
+
+        int novoIndice = (mes.ordinal() + mesesDepois) % Meses.values().length;
+
+        Meses mesNovo = Meses.values()[novoIndice];
+
+        System.out.println(mesNovo);
 
 
 
