@@ -19,4 +19,9 @@ public class Poupanca extends Conta {
                 "Dia de Aniver: " + diaAniversario + "\n"+
                 "Rendimento: " + rendimento + "\n";
     }
+
+    @Override
+    public int tipoStatus() {
+        return 1;
+    }
 }

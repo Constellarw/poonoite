@@ -22,4 +22,9 @@ public class Corrente extends Conta {
         return super.toString() +
                 "limite: " + limite + "\n";
     }
+
+    @Override
+    public int tipoStatus() {
+        return 2;
+    }
 }

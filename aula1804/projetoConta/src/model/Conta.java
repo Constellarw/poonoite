@@ -39,4 +39,6 @@ public abstract class Conta {
                 "Cliente: " + nomeCliente + "\n" +
                 "Saldo: " + saldo + "\n";
     }
+
+    abstract int tipoStatus();
 }
