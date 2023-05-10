@@ -1,5 +1,6 @@
 package view;
 
+import exceptions.CaixaException;
 import model.Caixa;
 
 import javax.swing.*;
@@ -127,14 +128,35 @@ public class CaixaView extends JFrame implements WindowListener, ActionListener 
         if (cmdSair.equals(source)) {
             System.exit(0);
         } else if (cmdEntrada.equals(source)) {
-            double valor = Double.parseDouble(txtValor.getText());
-            caixa.depositar(valor);
-            txtMsg.append("Depósito de " + valor + " feito \n");
+
+            try {
+                double valor = Double.parseDouble(txtValor.getText());
+                caixa.depositar(valor);
+                txtMsg.append("Depósito de " + valor + " feito \n");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Erro: " + ex.getMessage(),
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+
 
         } else if (cmdRetirada.equals(source)) {
-            double valor = Double.parseDouble(txtValor.getText());
-            caixa.sacar(valor);
-            txtMsg.append("Saque de " + valor + " feito \n");
+            try {
+                double valor = Double.parseDouble(txtValor.getText());
+                caixa.sacar(valor);
+                txtMsg.append("Saque de " + valor + " feito \n");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Erro: " + ex.getMessage(),
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+
         } else if (cmdConsulta.equals(source)) {
             txtSaldo.setText(Double.toString(caixa.getSaldo()));
             txtMsg.append("Saldo consultado em tela \n");

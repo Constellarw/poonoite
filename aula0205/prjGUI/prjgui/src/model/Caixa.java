@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.CaixaException;
+
 public class Caixa {
     private double saldo;
 
@@ -7,18 +9,18 @@ public class Caixa {
         return saldo;
     }
 
-    public void sacar(double valor){
+    public void sacar(double valor) throws CaixaException {
         if(valor <= saldo){
             saldo -= valor;
         }else{
-            throw new IllegalArgumentException("Sem saldo");
+            throw new CaixaException(2);
         }
     }
-    public void depositar(double valor){
+    public void depositar(double valor) throws CaixaException {
         if(valor > 0){
             saldo += valor;
         }else{
-            throw new IllegalArgumentException("Valor deve ser positivo");
+            throw new CaixaException(1);
         }
     }
 }
